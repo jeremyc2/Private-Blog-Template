@@ -13,3 +13,7 @@ bun index.ts
 ### Authorized redirect URIs
 
 - http://localhost:4321/api/auth/callback/google
+
+### Suggestions
+
+- [Awesome.md](awesome.md)
