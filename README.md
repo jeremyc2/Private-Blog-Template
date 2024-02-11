@@ -1,8 +1,7 @@
 ## Setup
 
 ```bash
-bun install -g private-blog-template@latest
-pblog
+bunx private-blog-template
 ```
 
 Replace `clientId` and `clientSecret` in `auth.config.ts` with values from your Google Account
