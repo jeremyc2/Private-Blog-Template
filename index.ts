@@ -1,3 +1,5 @@
+#!/usr/bin/env bun
+
 import { $ } from "bun";
 import { parseArgs } from "util";
 import { mkdir } from "node:fs/promises";

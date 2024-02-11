@@ -1,7 +1,8 @@
 ## Setup
 
 ```bash
-bun index.ts
+bun install -g private-blog-template@latest
+bunx pblog
 ```
 
 [Setup Google OAuth 2.0 Client ID](https://console.developers.google.com/apis/credentials)
