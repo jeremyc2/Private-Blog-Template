@@ -17,3 +17,5 @@ bun index.ts
 ### Suggestions
 
 - [Awesome.md](awesome.md)
+
+Todo: add bin to package json
