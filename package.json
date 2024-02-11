@@ -1,5 +1,6 @@
 {
   "name": "private-blog-template",
+  "version": "0.0.0",
   "module": "index.ts",
   "type": "module",
   "devDependencies": {
@@ -7,5 +8,8 @@
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
+  },
+  "bin": {
+    "pblog": "index.ts"
   }
 }
