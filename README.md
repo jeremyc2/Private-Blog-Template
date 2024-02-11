@@ -2,10 +2,12 @@
 
 ```bash
 bun install -g private-blog-template@latest
-bunx pblog
+pblog
 ```
 
-[Setup Google OAuth 2.0 Client ID](https://console.developers.google.com/apis/credentials)
+Replace `clientId` and `clientSecret` in `auth.config.ts` with values from your Google Account
+
+[Setup Google OAuth 2.0](https://console.developers.google.com/apis/credentials)
 
 ### Authorized JavaScript origins
 

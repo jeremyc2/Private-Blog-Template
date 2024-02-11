@@ -1,6 +1,6 @@
 {
   "name": "private-blog-template",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "module": "index.ts",
   "type": "module",
   "devDependencies": {
