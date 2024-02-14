@@ -174,7 +174,10 @@ GOOGLE_CLIENT_SECRET=REPLACE_ME`
  * Private Layout
  */
 
-await Bun.write(`${name}/src/users.json`, JSON.stringify([]));
+await Bun.write(
+  `${name}/src/users.json`,
+  JSON.stringify([(await $`git config user.email`.text()).trimEnd() ?? ""])
+);
 
 await Bun.write(
   `${name}/src/lib/server.ts`,
