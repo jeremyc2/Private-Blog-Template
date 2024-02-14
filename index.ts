@@ -154,16 +154,21 @@ import { defineConfig } from "auth-astro";
 export default defineConfig({
   providers: [
     Google({
-      clientId: "REPLACE-ME",
-      clientSecret: "REPLACE-ME",
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
   ],
 });
 `
 );
 
-const authSecret = await $`openssl rand -hex 32`.text();
-await Bun.write(`${name}/.env`, `AUTH_SECRET=${authSecret}`);
+const authSecret = (await $`openssl rand -hex 32`.text()).trimEnd();
+await Bun.write(
+  `${name}/.env`,
+  `AUTH_SECRET=${authSecret}
+GOOGLE_CLIENT_ID=REPLACE_ME
+GOOGLE_CLIENT_SECRET=REPLACE_ME`
+);
 
 /**
  * Private Layout

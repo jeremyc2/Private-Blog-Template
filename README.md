@@ -4,7 +4,7 @@
 bunx private-blog-template
 ```
 
-Replace `clientId` and `clientSecret` in `auth.config.ts` with values from your Google Account
+Replace `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` in `.env` with values from your Google Account
 
 [Setup Google OAuth 2.0](https://console.developers.google.com/apis/credentials)
 
