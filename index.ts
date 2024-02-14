@@ -15,7 +15,7 @@ const name = positionals[2] ?? "my-blog";
  * Astro
  */
 
-await $`bunx create-astro@latest --template minimal --install --git --skip-houston --typescript strict -y ${name}`;
+await $`bunx create-astro@latest --template minimal --install --no-git --skip-houston --typescript strict -y ${name}`;
 
 $.cwd(name);
 
@@ -244,7 +244,9 @@ pkg.scripts = { ...pkg.scripts, deploy: "vercel --prod" };
 await Bun.write(`${name}/package.json`, JSON.stringify(pkg, null, "\t"));
 
 /**
- * Git add
+ * Git
  */
 
+await $`git init -b main`;
 await $`git add .`;
+await $`git commit -m "initial commit"`;
