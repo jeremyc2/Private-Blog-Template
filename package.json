@@ -1,6 +1,6 @@
 {
   "name": "private-blog-template",
-  "version": "0.1.2",
+  "version": "0.1.5",
   "module": "index.ts",
   "repository": {
     "type": "git",

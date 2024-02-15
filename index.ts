@@ -183,14 +183,20 @@ await Bun.write(
 await Bun.write(
   `${name}/src/lib/server.ts`,
   `import { getSession } from "auth-astro/server";
-  import users from "../users.json";
-  
-  export async function getHasPermission(request: Request) {
-    const session = await getSession(request);
-    const email = session?.user?.email;
-    if (!email) return false;
-    return (users as string[]).includes(email);
+import users from "../users.json";
+
+export async function getAuth(request: Request): Promise<{
+  loggedIn: boolean;
+  authenticated: boolean;
+}> {
+  const session = await getSession(request);
+  const email = session?.user?.email;
+  if (!email) return { loggedIn: false, authenticated: false };
+  if (!(users as string[]).includes(email)) {
+    return { loggedIn: true, authenticated: false };
   }
+  return { loggedIn: true, authenticated: true };
+}
 `
 );
 
@@ -204,30 +210,32 @@ export { signIn, signOut } from "auth-astro/client";
 await Bun.write(
   `${name}/src/layouts/private-page.astro`,
   `---
-  import { getHasPermission } from "../lib/server";
-  
-  interface Props {
-    title: string;
-  }
-  
-  const { title } = Astro.props;
-  
-  const hasPermission = await getHasPermission(Astro.request);
-  ---
-  
-  <html lang="en">
-    <head>
-      <meta charset="utf-8" />
-      <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-      <meta name="viewport" content="width=device-width" />
-      <meta name="generator" content={Astro.generator} />
-      <meta name="robots" content="noindex,follow" />
-      <title>{title}</title>
-    </head>
-    <body>
-      {hasPermission && <slot />}
-    </body>
-  </html>
+import { SignIn, SignOut } from "auth-astro/components";
+import { getAuth } from "../lib/server";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+
+const { loggedIn, authenticated } = await getAuth(Astro.request);
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="robots" content="noindex,follow" />
+    <title>{title}</title>
+  </head>
+  <body>
+    {loggedIn ? <SignIn>Sign in</SignIn> : <SignOut>Sign out</SignOut>}
+    {authenticated && <slot />}
+  </body>
+</html>
 `
 );
 
