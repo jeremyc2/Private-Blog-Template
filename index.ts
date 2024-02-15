@@ -63,6 +63,7 @@ await Bun.write(
 );
 
 await $`bun add class-variance-authority clsx lucide-react tailwind-merge tailwindcss-animate`;
+await $`bun add -D @types/bun`;
 
 await Bun.write(
   `${name}/tailwind.config.mjs`,
