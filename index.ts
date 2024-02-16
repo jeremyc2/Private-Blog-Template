@@ -236,8 +236,10 @@ const { loggedIn, authenticated } = await getAuth(Astro.request);
     <header>
       <nav>
         {loggedIn ? <SignOut>Sign out</SignOut> : <SignIn>Sign in</SignIn>}
-        {authenticated && <slot />}
       </nav>
+      <main>
+        {authenticated && <slot />}
+      </main>
     </header>
   </body>
 </html>
