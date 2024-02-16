@@ -233,8 +233,12 @@ const { loggedIn, authenticated } = await getAuth(Astro.request);
     <title>{title}</title>
   </head>
   <body>
-    {loggedIn ? <SignOut>Sign out</SignOut> : <SignIn>Sign in</SignIn>}
-    {authenticated && <slot />}
+    <header>
+      <nav>
+        {loggedIn ? <SignOut>Sign out</SignOut> : <SignIn>Sign in</SignIn>}
+        {authenticated && <slot />}
+      </nav>
+    </header>
   </body>
 </html>
 `
