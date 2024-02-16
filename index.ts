@@ -242,7 +242,7 @@ const { loggedIn, authenticated } = await getAuth(Astro.request);
 await Bun.write(
   `${name}/src/pages/index.astro`,
   `---
-import Layout from @/layouts/private-page.astro";
+import Layout from "@/layouts/private-page.astro";
 ---
 
 <Layout title="Home">Hello World!</Layout>
