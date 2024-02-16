@@ -212,6 +212,7 @@ await Bun.write(
   `---
 import { SignIn, SignOut } from "@/components/auth";
 import { getAuth } from "@/lib/server";
+import "@/styles/globals.css";
 
 interface Props {
   title: string;
