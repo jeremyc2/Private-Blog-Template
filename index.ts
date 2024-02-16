@@ -183,7 +183,7 @@ await Bun.write(
 await Bun.write(
   `${name}/src/lib/server.ts`,
   `import { getSession } from "auth-astro/server";
-import users from "../users.json";
+import users from "@/users.json";
 
 export async function getAuth(request: Request): Promise<{
   loggedIn: boolean;
@@ -210,8 +210,8 @@ export { signIn, signOut } from "auth-astro/client";
 await Bun.write(
   `${name}/src/layouts/private-page.astro`,
   `---
-import { SignIn, SignOut } from "auth-astro/components";
-import { getAuth } from "../lib/server";
+import { SignIn, SignOut } from "@/components/auth";
+import { getAuth } from "@/lib/server";
 
 interface Props {
   title: string;
@@ -242,7 +242,7 @@ const { loggedIn, authenticated } = await getAuth(Astro.request);
 await Bun.write(
   `${name}/src/pages/index.astro`,
   `---
-import Layout from "../layouts/private-page.astro";
+import Layout from @/layouts/private-page.astro";
 ---
 
 <Layout title="Home">Hello World!</Layout>
