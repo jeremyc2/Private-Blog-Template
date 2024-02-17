@@ -235,7 +235,17 @@ const { loggedIn, authenticated } = await getAuth(Astro.request);
   <body>
     <header>
       <nav>
-        {loggedIn ? <SignOut>Sign out</SignOut> : <SignIn>Sign in</SignIn>}
+        {
+          loggedIn ? (
+            <SignOut class="p-1 border-solid border-black border rounded">
+              Sign out
+            </SignOut>
+          ) : (
+            <SignIn class="p-1 border-solid border-black border rounded">
+              Sign in
+            </SignIn>
+          )
+        }
       </nav>
     </header>
     <main>
@@ -274,6 +284,16 @@ await Bun.write(`${name}/package.json`, JSON.stringify(pkg, null, "\t"));
 await Bun.write(
   `${name}/README.md`,
   `# ${name}
+
+The fastest way to create private blogs! The only accounts you need are Vercel and Google Cloud. Minimal vendor lock in.
+
+- [Astro](https://astro.build/)
+- [Bun](https://bun.sh/)
+- [React](https://react.dev/)
+- [Tailwind](https://tailwindcss.com/)
+- [Vercel](https://vercel.com)
+- [Auth Astro](https://github.com/nowaythatworked/auth-astro)
+- [Shadcn/ui](https://ui.shadcn.com/)
 
 ## Setup
 

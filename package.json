@@ -1,10 +1,10 @@
 {
   "name": "private-blog-template",
-  "version": "0.2.3",
+  "version": "0.2.6",
   "module": "index.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jeremyc2/Private-Blog-Template.git"
+    "url": "git+https://github.com/jeremyc2/Private-Blog-Template.git"
   },
   "type": "module",
   "devDependencies": {
