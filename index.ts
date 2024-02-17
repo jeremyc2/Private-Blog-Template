@@ -285,23 +285,20 @@ await Bun.write(
   `${name}/README.md`,
   `# ${name}
 
+Built with [Private Blog Template](https://github.com/jeremyc2/Private-Blog-Template).
 The fastest way to create private blogs! The only accounts you need are Vercel and Google Cloud. Minimal vendor lock in.
 
 - [Astro](https://astro.build/)
+- [Vercel](https://vercel.com)
 - [Bun](https://bun.sh/)
 - [React](https://react.dev/)
 - [Tailwind](https://tailwindcss.com/)
-- [Vercel](https://vercel.com)
 - [Auth Astro](https://github.com/nowaythatworked/auth-astro)
 - [Shadcn/ui](https://ui.shadcn.com/)
 
 ## Setup
 
-Replace \`GOOGLE_CLIENT_ID\` and \`GOOGLE_CLIENT_SECRET\` in [.env](.env) with values from your Google Account
-
 [Setup Google OAuth 2.0](https://console.developers.google.com/apis/credentials)
-
-Update users list in [users.json](src/users.json)
 
 ### Authorized JavaScript origins
 
@@ -310,6 +307,12 @@ Update users list in [users.json](src/users.json)
 ### Authorized redirect URIs
 
 - http://localhost:4321/api/auth/callback/google
+
+### Environment
+
+Replace \`GOOGLE_CLIENT_ID\` and \`GOOGLE_CLIENT_SECRET\` in [.env](.env) with values from your Google Account
+
+Update users list in [users.json](src/users.json)
 
 ### Suggestions
 
