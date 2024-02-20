@@ -1,5 +1,8 @@
 # Private Blog Template
 
+TODO:  
+1. Make sure scripts run with Bun by adding `bunx --bun astro ...` if needed
+
 The fastest way to create private blogs! The only accounts you need are Vercel and Google Cloud. Minimal vendor lock in.
 
 - [Astro](https://astro.build/)
