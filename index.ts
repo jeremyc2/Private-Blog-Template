@@ -267,7 +267,7 @@ import Layout from "@/layouts/private-page.astro";
 );
 
 /**
- * Add deploy script
+ * Add Vercel and Astro scripts
  */
 
 await $`bun install --global vercel`;
