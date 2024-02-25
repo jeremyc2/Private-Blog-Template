@@ -274,7 +274,12 @@ await $`bun install --global vercel`;
 const pkg = (await new Response(
   Bun.file(`${name}/package.json`)
 ).json()) as any;
-pkg.scripts = { ...pkg.scripts, deploy: "vercel --prod" };
+pkg.scripts = {
+  dev: "bunx --bun astro dev",
+  build: "bunx --bun astro check && bunx --bun astro build",
+  preview: "bunx --bun astro preview",
+  deploy: "vercel --prod",
+};
 await Bun.write(`${name}/package.json`, JSON.stringify(pkg, null, "\t"));
 
 /**
